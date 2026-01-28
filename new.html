@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverside Data Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2d5a3d;
+            --primary-light: #4a7c5e;
+            --accent: #0ea5a5;
+            --background: #faf8f6;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --text-light: #666666;
+            --border: #e5e5e5;
+            --radius: 12px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-btn {
+            background: var(--background);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            min-width: 150px;
+            margin-top: 0.5rem;
+        }
+
+        .lang-dropdown.active {
+            display: block;
+        }
+
+        .lang-option {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .lang-option:hover {
+            background: var(--background);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--background) 0%, #f5f1ed 100%);
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(14, 165, 165, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 90, 61, 0.3);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 90, 61, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 4rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: var(--radius);
+            padding: 4rem;
+        }
+
+        .contact .section-title,
+        .contact .section-subtitle {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            nav a {
+                display: block;
+                text-align: center;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .about {
+                padding: 2rem;
+            }
+
+            .contact {
+                padding: 2rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">R</div>
+                <span id="site-title">Riverside Data Solutions</span>
+            </a>
+            <nav>
+                <a href="#about" onclick="scrollToSection(event)">
+                    <span id="nav-about">About</span>
+                </a>
+                <a href="#services" onclick="scrollToSection(event)">
+                    <span id="nav-services">Services</span>
+                </a>
+                <a href="#contact" onclick="scrollToSection(event)">
+                    <span id="nav-contact">Contact</span>
+                </a>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="lang-toggle" onclick="toggleLangDropdown()">
+                        <span id="current-lang">EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option" onclick="setLanguage('en')">English</button>
+                        <button class="lang-option" onclick="setLanguage('es')">Español</button>
+                        <button class="lang-option" onclick="setLanguage('zh')">中文</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title">Data-Driven Insights for Your Business</h1>
+            <p id="hero-subtitle">Empowering organizations with comprehensive data engineering, analytics, and science solutions since 2025.</p>
+            <button class="cta-btn" onclick="scrollToSection({target: {getAttribute: () => '#contact'}})">
+                <span id="hero-cta">Get Started</span>
+            </button>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">2025</div>
+                    <div class="stat-label" id="stat-founded">Founded</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label" id="stat-services">Core Services</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label" id="stat-possibilities">Possibilities</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about">
+            <h2 class="section-title" id="about-title">About the Company</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p id="about-desc-1">Welcome to Riverside Data Solutions! Founded in early 2025, this company has been a dream of mine for years.</p>
+                    <p id="about-desc-2">We have a dedicated team of data engineers, data analysts, and data scientists to deliver comprehensive solutions.</p>
+                    <p id="about-desc-3">Our mission is to empower your business with data-driven insights and strategies.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: var(--radius); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                    📊
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title" id="services-title">Our Services</h2>
+        <p class="section-subtitle" id="services-subtitle">Comprehensive data solutions tailored to your needs</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3 id="service-1-title">Data Engineering</h3>
+                <p id="service-1-desc">Building robust data pipelines and infrastructure to handle your data at scale.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3 id="service-2-title">Data Analytics</h3>
+                <p id="service-2-desc">Insightful dashboards and reports that transform raw data into actionable intelligence.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3 id="service-3-title">Data Science</h3>
+                <p id="service-3-desc">Predictive modeling and machine learning solutions to unlock future opportunities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact">
+            <h2 class="section-title" id="contact-title">Contact Us</h2>
+            <p class="section-subtitle" id="contact-subtitle">Let's discuss how we can help transform your data</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4 id="contact-email-label">Email</h4>
+                    <a href="mailto:data_solutions_llc@yahoo.com">data_solutions_llc@yahoo.com</a>
+                </div>
+                <div class="contact-item">
+                    <h4 id="contact-phone-label">Phone</h4>
+                    <a href="tel:+19517852481">+1 (951) 785-2481</a>
+                </div>
+                <div class="contact-item">
+                    <h4 id="contact-location-label">Location</h4>
+                    <p>Riverside, California, USA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p id="footer-text">© 2025 Riverside Data Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Language data
+        const translations = {
+            en: {
+                siteTitle: "Riverside Data Solutions",
+                navAbout: "About",
+                navServices: "Services",
+                navContact: "Contact",
+                heroTitle: "Data-Driven Insights for Your Business",
+                heroSubtitle: "Empowering organizations with comprehensive data engineering, analytics, and science solutions since 2025.",
+                heroCta: "Get Started",
+                statFounded: "Founded",
+                statServices: "Core Services",
+                statPossibilities: "Possibilities",
+                aboutTitle: "About the Company",
+                aboutDesc1: "Welcome to Riverside Data Solutions! Founded in early 2025, this company has been a dream of mine for years.",
+                aboutDesc2: "We have a dedicated team of data engineers, data analysts, and data scientists to deliver comprehensive solutions.",
+                aboutDesc3: "Our mission is to empower your business with data-driven insights and strategies.",
+                servicesTitle: "Our Services",
+                servicesSubtitle: "Comprehensive data solutions tailored to your needs",
+                service1Title: "Data Engineering",
+                service1Desc: "Building robust data pipelines and infrastructure to handle your data at scale.",
+                service2Title: "Data Analytics",
+                service2Desc: "Insightful dashboards and reports that transform raw data into actionable intelligence.",
+                service3Title: "Data Science",
+                service3Desc: "Predictive modeling and machine learning solutions to unlock future opportunities.",
+                contactTitle: "Contact Us",
+                contactSubtitle: "Let's discuss how we can help transform your data",
+                contactEmailLabel: "Email",
+                contactPhoneLabel: "Phone",
+                contactLocationLabel: "Location",
+                footerText: "© 2025 Riverside Data Solutions. All rights reserved."
+            },
+            es: {
+                siteTitle: "Soluciones de Datos Riverside",
+                navAbout: "Acerca de",
+                navServices: "Servicios",
+                navContact: "Contacto",
+                heroTitle: "Conocimientos Basados en Datos para Su Negocio",
+                heroSubtitle: "Empoderando organizaciones con soluciones integrales de ingeniería, análisis y ciencia de datos desde 2025.",
+                heroCta: "Comenzar",
+                statFounded: "Fundada",
+                statServices: "Servicios Principales",
+                statPossibilities: "Posibilidades",
+                aboutTitle: "Sobre la Empresa",
+                aboutDesc1: "¡Bienvenido a Soluciones de Datos Riverside! Fundada a principios de 2025, esta empresa ha sido un sueño mío durante años.",
+                aboutDesc2: "Contamos con un equipo dedicado de ingenieros de datos, analistas de datos y científicos de datos para ofrecer soluciones completas.",
+                aboutDesc3: "Nuestra misión es empoderar a su empresa con conocimientos y estrategias basadas en datos.",
+                servicesTitle: "Nuestros Servicios",
+                servicesSubtitle: "Soluciones de datos integrales adaptadas a sus necesidades",
+                service1Title: "Ingeniería de Datos",
+                service1Desc: "Construcción de canalizaciones de datos robustas e infraestructura para manejar sus datos a escala.",
+                service2Title: "Análisis de Datos",
+                service2Desc: "Tableros e informes perspicaces que transforman datos sin procesar en inteligencia procesable.",
+                service3Title: "Ciencia de Datos",
+                service3Desc: "Modelado predictivo y soluciones de aprendizaje automático para desbloquear oportunidades futuras.",
+                contactTitle: "Contáctenos",
+                contactSubtitle: "Hablemos sobre cómo podemos ayudar a transformar sus datos",
+                contactEmailLabel: "Correo electrónico",
+                contactPhoneLabel: "Teléfono",
+                contactLocationLabel: "Dirección",
+                footerText: "© 2025 Soluciones de Datos Riverside. Todos los derechos reservados."
+            },
+            zh: {
+                siteTitle: "河滨数据解决方案",
+                navAbout: "关于",
+                navServices: "服务",
+                navContact: "联系",
+                heroTitle: "为您的业务提供数据驱动的洞察",
+                heroSubtitle: "自2025年以来，通过全面的数据工程、分析和科学解决方案赋能组织。",
+                heroCta: "开始使用",
+                statFounded: "成立于",
+                statServices: "核心服务",
+                statPossibilities: "可能性",
+                aboutTitle: "关于公司",
+                aboutDesc1: "欢迎来到河滨数据解决方案！该公司成立于2025年初，这家公司是我多年来的梦想。",
+                aboutDesc2: "我们拥有一支由数据工程师、数据分析师和数据科学家组成的专业团队，提供全面的解决方案。",
+                aboutDesc3: "我们的使命是通过数据驱动的洞察力和策略赋能您的业务。",
+                servicesTitle: "我们的服务",
+                servicesSubtitle: "根据您的需求量身定制的全面数据解决方案",
+                service1Title: "数据工程",
+                service1Desc: "构建强大的数据管道和基础设施，以大规模处理您的数据。",
+                service2Title: "数据分析",
+                service2Desc: "有洞察力的仪表板和报告，将原始数据转化为可操作的智能。",
+                service3Title: "数据科学",
+                service3Desc: "预测建模和机器学习解决方案，释放未来机会。",
+                contactTitle: "联系我们",
+                contactSubtitle: "让我们讨论如何帮助转变您的数据",
+                contactEmailLabel: "电子邮件",
+                contactPhoneLabel: "电话",
+                contactLocationLabel: "地址",
+                footerText: "© 2025 河滨数据解决方案。保留所有权利。"
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            updateContent();
+            document.getElementById('lang-dropdown').classList.remove('active');
+            document.getElementById('current-lang').textContent = lang.toUpperCase();
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        function updateContent() {
+            const t = translations[currentLanguage];
+            
+            document.getElementById('site-title').textContent = t.siteTitle;
+            document.getElementById('nav-about').textContent = t.navAbout;
+            document.getElementById('nav-services').textContent = t.navServices;
+            document.getElementById('nav-contact').textContent = t.navContact;
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+            document.getElementById('hero-cta').textContent = t.heroCta;
+            document.getElementById('stat-founded').textContent = t.statFounded;
+            document.getElementById('stat-services').textContent = t.statServices;
+            document.getElementById('stat-possibilities').textContent = t.statPossibilities;
+            document.getElementById('about-title').textContent = t.aboutTitle;
+            document.getElementById('about-desc-1').textContent = t.aboutDesc1;
+            document.getElementById('about-desc-2').textContent = t.aboutDesc2;
+            document.getElementById('about-desc-3').textContent = t.aboutDesc3;
+            document.getElementById('services-title').textContent = t.servicesTitle;
+            document.getElementById('services-subtitle').textContent = t.servicesSubtitle;
+            document.getElementById('service-1-title').textContent = t.service1Title;
+            document.getElementById('service-1-desc').textContent = t.service1Desc;
+            document.getElementById('service-2-title').textContent = t.service2Title;
+            document.getElementById('service-2-desc').textContent = t.service2Desc;
+            document.getElementById('service-3-title').textContent = t.service3Title;
+            document.getElementById('service-3-desc').textContent = t.service3Desc;
+            document.getElementById('contact-title').textContent = t.contactTitle;
+            document.getElementById('contact-subtitle').textContent = t.contactSubtitle;
+            document.getElementById('contact-email-label').textContent = t.contactEmailLabel;
+            document.getElementById('contact-phone-label').textContent = t.contactPhoneLabel;
+            document.getElementById('contact-location-label').textContent = t.contactLocationLabel;
+            document.getElementById('footer-text').textContent = t.footerText;
+        }
+
+        function toggleLangDropdown() {
+            document.getElementById('lang-dropdown').classList.toggle('active');
+        }
+
+        function scrollToSection(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            }
+            const target = event.target.getAttribute('href') || '#contact';
+            const element = document.querySelector(target);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('lang-dropdown');
+            const toggle = document.getElementById('lang-toggle');
+            if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Initialize with saved language or default
+        const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+        setLanguage(savedLanguage);
+    </script>
+</body>
+</html>
