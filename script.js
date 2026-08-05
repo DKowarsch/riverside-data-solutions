@@ -14,7 +14,7 @@ const translations = {
         ],
         contactTitle: "Contact Us",
         contactInfo: [
-            "Email: data_solutions_llc@yahoo.com",
+            "Email: support@rds24.com",
             "Phone: +1 (951) 785-2481",
             "Location: Riverside, California, USA"
         ],
@@ -34,7 +34,7 @@ const translations = {
         ],
         contactTitle: "Contáctenos",
         contactInfo: [
-            "Correo electrónico: data_solutions_llc@yahoo.com",
+            "Correo electrónico: support@rds24.com",
             "Teléfono: +1 (951) 785-2481",
             "Dirección: Riverside, California, USA"
         ],
@@ -54,7 +54,7 @@ const translations = {
         ],
         contactTitle: "联系我们",
         contactInfo: [
-            "电子邮件: data_solutions_llc@yahoo.com",
+            "电子邮件: support@rds24.com",
             "电话: +1 (951) 785-2481",
             "地址: Riverside, Calinfornia, USA"
         ],

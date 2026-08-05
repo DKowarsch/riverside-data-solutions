@@ -1,40 +1,43 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
+:root {
+    /* Riverside Data Solutions - Modern Data-Driven Elegance */
+    --primary: #0F172A;        /* Deep navy - trust & professionalism */
+    --primary-foreground: #FFFFFF;
+    --accent: #06B6D4;         /* Electric teal - innovation & CTAs */
+    --accent-hover: #0891B2;
+    --background: #FFFFFF;
+    --foreground: #1E293B;
+    --card: #F8FAFC;
+    --muted: #F1F5F9;
+    --muted-foreground: #64748B;
+    --border: #E2E8F0;
+    --radius: 0.5rem;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background);
+    color: var(--foreground);
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    padding: 32px 20px 24px;
     text-align: center;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-family: 'Geist', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 nav ul {
@@ -42,38 +45,95 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
-    margin: 10px 0 0;
+    gap: 8px;
+    margin: 16px 0 0;
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0;
 }
 
-nav ul li button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1em;
+nav ul li button.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--primary-foreground);
+    font-size: 0.9em;
+    padding: 6px 14px;
+    border-radius: var(--radius);
     cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-nav ul li button:hover {
-    text-decoration: underline;
+nav ul li button.lang-btn:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 section {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 28px 32px;
+    margin: 24px auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+section h2 {
+    font-family: 'Geist', system-ui, sans-serif;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-top: 0;
+}
+
+section p {
+    color: var(--foreground);
+}
+
+#services-list,
+#contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+#services-list li,
+#contact-info li {
+    padding: 10px 0 10px 24px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+#services-list li:last-child,
+#contact-info li:last-child {
+    border-bottom: none;
+}
+
+#services-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+}
+
+#contact-info li {
+    color: var(--muted-foreground);
 }
 
 footer {
     text-align: center;
-    background: #333;
-    color: white;
-    padding: 10px;
-    margin-top: 20px;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 16px;
+    margin-top: 32px;
+    font-size: 0.9em;
 }
