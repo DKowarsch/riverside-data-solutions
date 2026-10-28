@@ -3,8 +3,8 @@ name: Run Strategy Alpha Screener
 
 on:
   schedule:
-    # Cron times are in UTC. 21:30 UTC Mon-Fri = after the US market close.
-    - cron: "30 21 * * 1-5"
+    # Cron times are in UTC. 13:00 UTC Mon-Fri = 5:00 AM PST (6:00 AM during daylight saving time, Mar-Nov).
+    - cron: "0 13 * * 1-5"
   workflow_dispatch:        # adds a "Run workflow" button for manual runs
 
 jobs:
@@ -27,12 +27,24 @@ jobs:
 
       - name: Run data pipeline
         run: python data_pipeline.py
-        # If your scripts need API keys, store them as repo secrets and pass them like this:
-        # env:
-        #   DATA_API_KEY: ${{ secrets.DATA_API_KEY }}
+
+      - name: Remove any old report
+        run: rm -f screener_dashboard.html
 
       - name: Run screener
         run: python strategy_alpha.py
+
+      - name: Check report was created
+        run: |
+          echo "Files in project folder:"
+          ls -la
+          if [ ! -f screener_dashboard.html ]; then
+            echo "ERROR: screener_dashboard.html was not created by strategy_alpha.py"
+            exit 1
+          fi
+          echo "Report found:"
+          ls -la screener_dashboard.html
+          grep -o 'generated [0-9-]* [0-9:]* UTC' screener_dashboard.html | head -n1
 
       - name: Set today's date
         run: echo "TODAY=$(date -u +%F)" >> "$GITHUB_ENV"
@@ -45,16 +57,16 @@ jobs:
           secure: true
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "Strategy Alpha report - ${{ env.TODAY }}"
+          subject: "Strategy Alpha report"
           to: yangdan3210@gmail.com
           from: Strategy Alpha Bot <${{ secrets.MAIL_USERNAME }}>
-          body: "Attached is today's Strategy Alpha screener report."
-          attachments: screener_dashboard.html
+          body: "Attached is today's Strategy Alpha screener report. Download the attachment and open it in Chrome or Edge to see the table and charts."
+          attachments: ${{ github.workspace }}/screener_dashboard.html
 
       - name: Keep a copy of the report in GitHub
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: report-${{ env.TODAY }}
+          name: report
           path: screener_dashboard.html
           retention-days: 30
