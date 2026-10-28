@@ -1,0 +1,61 @@
+# Save this file in your repo at: .github/workflows/run_screener.yml
+name: Run Strategy Alpha Screener
+
+on:
+  schedule:
+    # Cron times are in UTC. 21:30 UTC Mon-Fri = after the US market close.
+    - cron: "30 21 * * 1-5"
+  workflow_dispatch:        # adds a "Run workflow" button for manual runs
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run data pipeline
+        run: python data_pipeline.py
+        # If your scripts need API keys, store them as repo secrets and pass them like this:
+        # env:
+        #   DATA_API_KEY: ${{ secrets.DATA_API_KEY }}
+
+      - name: Run screener
+        run: python strategy_alpha.py
+
+      - name: Set today's date
+        run: echo "TODAY=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      - name: Email HTML report
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "Strategy Alpha report - ${{ env.TODAY }}"
+          to: yangdan3210@gmail.com
+          from: Strategy Alpha Bot <${{ secrets.MAIL_USERNAME }}>
+          body: "Attached is today's Strategy Alpha screener report."
+          # Change this if strategy_alpha.py saves the HTML in a subfolder, e.g. output/*.html
+          attachments: "*.html"
+
+      - name: Keep a copy of the report in GitHub
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-${{ env.TODAY }}
+          path: "*.html"
+          retention-days: 30
