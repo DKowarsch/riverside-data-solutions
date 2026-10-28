@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import webbrowser
 from datetime import datetime, timezone
 from pathlib import Path
@@ -35,9 +36,11 @@ def write_dashboard(scan: dict, output_path: str | Path = DASHBOARD_FILE) -> Pat
 
 def write_and_open(scan: dict, output_path: str | Path = DASHBOARD_FILE) -> Path:
     path = write_dashboard(scan, output_path)
-    webbrowser.open(path.as_uri())
     print(f"\n📊 Dashboard written to {path}")
-    print("   Opened in your default browser.")
+    # GitHub Actions has no screen: only write the file there, don't open a browser.
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        webbrowser.open(path.as_uri())
+        print("   Opened in your default browser.")
     return path
 
 
