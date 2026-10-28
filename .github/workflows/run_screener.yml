@@ -28,28 +28,37 @@ jobs:
       - name: Run data pipeline
         run: python data_pipeline.py
 
-      - name: Remove any old report
-        run: rm -f screener_dashboard.html
+      - name: Run screener (save its printed results)
+        shell: bash
+        run: python strategy_alpha.py | tee screener_output.txt
 
-      - name: Run screener
-        run: python strategy_alpha.py
+      - name: Run database check (save its printed results)
+        shell: bash
+        run: python view_data.py | tee view_data_output.txt
 
-      - name: Check report was created
+      - name: Build email body
+        shell: bash
         run: |
-          echo "Files in project folder:"
-          ls -la
-          if [ ! -f screener_dashboard.html ]; then
-            echo "ERROR: screener_dashboard.html was not created by strategy_alpha.py"
-            exit 1
-          fi
-          echo "Report found:"
-          ls -la screener_dashboard.html
-          grep -o 'generated [0-9-]* [0-9:]* UTC' screener_dashboard.html | head -n1
+          python - <<'EOF'
+          import html
+          sections = [
+              ("Screener signals", "screener_output.txt"),
+              ("Database check (view_data.py)", "view_data_output.txt"),
+          ]
+          parts = []
+          for title, path in sections:
+              with open(path, encoding="utf-8") as f:
+                  text = html.escape(f.read())
+              parts.append(
+                  f"<h3 style='font-family:Arial,sans-serif'>{title}</h3>"
+                  f"<pre style='font-family:Consolas,Menlo,monospace;font-size:12px;"
+                  f"background:#f6f8fa;padding:12px;border-radius:6px;overflow-x:auto'>{text}</pre>"
+              )
+          with open("email_body.html", "w", encoding="utf-8") as f:
+              f.write("".join(parts))
+          EOF
 
-      - name: Set today's date
-        run: echo "TODAY=$(date -u +%F)" >> "$GITHUB_ENV"
-
-      - name: Email HTML report
+      - name: Email results
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
@@ -60,13 +69,17 @@ jobs:
           subject: "Strategy Alpha report"
           to: yangdan3210@gmail.com
           from: Strategy Alpha Bot <${{ secrets.MAIL_USERNAME }}>
-          body: "Attached is today's Strategy Alpha screener report. Download the attachment and open it in Chrome or Edge to see the table and charts."
-          attachments: ${{ github.workspace }}/screener_dashboard.html
+          body: file://view_data_output.txt
+          html_body: file://email_body.html
 
-      - name: Keep a copy of the report in GitHub
+      - name: Keep a copy of the results in GitHub
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: report
-          path: screener_dashboard.html
+          path: |
+            screener_output.txt
+            view_data_output.txt
+            screener_dashboard.html
+          if-no-files-found: ignore
           retention-days: 30
