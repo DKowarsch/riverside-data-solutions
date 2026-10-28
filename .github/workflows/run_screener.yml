@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.14"
           cache: pip
 
       - name: Install dependencies
@@ -49,13 +49,12 @@ jobs:
           to: yangdan3210@gmail.com
           from: Strategy Alpha Bot <${{ secrets.MAIL_USERNAME }}>
           body: "Attached is today's Strategy Alpha screener report."
-          # Change this if strategy_alpha.py saves the HTML in a subfolder, e.g. output/*.html
-          attachments: "*.html"
+          attachments: screener_dashboard.html
 
       - name: Keep a copy of the report in GitHub
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: report-${{ env.TODAY }}
-          path: "*.html"
+          path: screener_dashboard.html
           retention-days: 30
