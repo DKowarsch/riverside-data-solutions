@@ -1,11 +1,12 @@
 # Save this file in your repo at: .github/workflows/run_screener.yml
 name: Run Strategy Alpha Screener
 
+# Automatic weekday runs are turned off: the new trading-dashboard repo now
+# updates the screener 3 times a day. To turn them back on, restore:
+#   schedule:
+#     - cron: "0 13 * * 1-5"   # 13:00 UTC Mon-Fri = 5 AM PST / 6 AM PDT
 on:
-  schedule:
-    # Cron times are in UTC. 13:00 UTC Mon-Fri = 5:00 AM PST (6:00 AM during daylight saving time, Mar-Nov).
-    - cron: "0 13 * * 1-5"
-  workflow_dispatch:        # adds a "Run workflow" button for manual runs
+  workflow_dispatch:        # "Run workflow" button still works for a manual run
 
 jobs:
   screen:
