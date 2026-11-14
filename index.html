@@ -96,6 +96,20 @@
         nav a:hover {
             color: var(--primary);
         }
+        nav a.nav-dashboard {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(45, 90, 61, 0.3);
+            transition: all 0.3s ease;
+        }
+        nav a.nav-dashboard:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 90, 61, 0.4);
+        }
 
         .lang-selector {
             position: relative;
@@ -461,6 +475,9 @@
                 <a href="#contact" onclick="scrollToSection('contact', event)">
                     <span id="nav-contact">Contact</span>
                 </a>
+                <a href="https://rds24-trading-dashboard.pages.dev" class="nav-dashboard" target="_blank" rel="noopener noreferrer">
+                    <span id="nav-dashboard">Trading Dashboard</span>
+                </a>
                 <div class="lang-selector">
                     <button class="lang-btn" id="lang-toggle" onclick="toggleLangDropdown()">
                         <span id="current-lang">EN</span>
@@ -605,6 +622,7 @@
                 navAbout: "About",
                 navServices: "Services",
                 navContact: "Contact",
+                navDashboard: "Trading Dashboard",
                 heroTitle: "Data-Driven Insights for Your Business",
                 heroSubtitle: "Empowering organizations with comprehensive data engineering, analytics, and science solutions since 2025.",
                 heroCta: "Get Started",
@@ -635,6 +653,7 @@
                 navAbout: "Acerca de",
                 navServices: "Servicios",
                 navContact: "Contacto",
+                navDashboard: "Panel de Trading",
                 heroTitle: "Conocimientos Basados en Datos para Su Negocio",
                 heroSubtitle: "Empoderando organizaciones con soluciones integrales de ingeniería, análisis y ciencia de datos desde 2025.",
                 heroCta: "Comenzar",
@@ -665,6 +684,7 @@
                 navAbout: "关于",
                 navServices: "服务",
                 navContact: "联系",
+                navDashboard: "交易仪表板",
                 heroTitle: "为您的业务提供数据驱动的洞察",
                 heroSubtitle: "自2025年以来，通过全面的数据工程、分析和科学解决方案赋能组织。",
                 heroCta: "开始使用",
@@ -709,6 +729,7 @@
             document.getElementById('nav-about').textContent = t.navAbout;
             document.getElementById('nav-services').textContent = t.navServices;
             document.getElementById('nav-contact').textContent = t.navContact;
+            document.getElementById('nav-dashboard').textContent = t.navDashboard;
             document.getElementById('hero-title').textContent = t.heroTitle;
             document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
             document.getElementById('hero-cta').textContent = t.heroCta;
