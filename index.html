@@ -451,7 +451,15 @@
             }
         }
     
-        .contact-grid-single { grid-template-columns: minmax(0, 420px); justify-content: center; }
+        .contact-inquiry { max-width: 640px; margin: 2rem auto 0; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: var(--radius); padding: 2rem; text-align: left; }
+        .contact-inquiry h3 { font-size: 1.4rem; margin-bottom: 0.5rem; color: white; }
+        .contact-inquiry p { opacity: 0.92; }
+        .contact-checklist { margin: 1rem 0 1.5rem 1.2rem; }
+        .contact-checklist li { margin: 0.25rem 0; }
+        .contact-btn { display: inline-block; background: white; color: var(--primary); font-weight: 600; text-decoration: none; padding: 0.85rem 1.8rem; border-radius: 50px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease; }
+        .contact-btn:hover { transform: translateY(-2px); }
+        .contact-direct { margin-top: 1.25rem; font-size: 0.9rem; }
+        .contact-direct a { color: white; font-weight: 600; }
 
         /* Higher-ed content sections */
         section.hx-section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
@@ -481,6 +489,7 @@
         .hx-rank li span::before { content: counter(rank) ". "; }
         .hx-rank b { color: var(--primary); }
         .hx-chart { position: relative; width: 100%; aspect-ratio: 4 / 3; }
+        .hx-example { display: inline-block; font-size: 0.7rem; font-weight: 600; background: #fff4d6; color: #7a5a00; border-radius: 20px; padding: 0.15rem 0.6rem; margin-bottom: 0.6rem; }
         .hx-note { font-size: 0.75rem; color: var(--text-light); margin-top: 0.6rem; font-style: italic; }
         .hx-case h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-top: 0.8rem; }
         .hx-case p { font-size: 0.9rem; }
@@ -515,6 +524,8 @@
             .hx-pub { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.1rem; }
             .hx-pub .hx-status { justify-self: start; }
             .hx-quote { padding: 1.1rem 1.25rem; font-size: 1rem; }
+            .contact-inquiry { padding: 1.25rem; }
+            .contact-btn { display: block; text-align: center; padding: 0.8rem 1.2rem; }
         }
     </style>
 </head>
@@ -630,6 +641,7 @@
             <p class="hx-subtitle">We score candidate programs on labor-market demand, local competition, student interest and fit with your strengths. Programs in the top-left are sunrise opportunities: growing demand, few local providers.</p>
             <div class="hx-split">
                 <div class="hx-card hx-ctrl">
+                    <span class="hx-example">Example data</span>
                     <strong class="hx-ctrl-title">What matters most to you?</strong>
                     <label for="opp-demand">Job demand growth <span class="hx-val" id="opp-demand-val">40%</span></label>
                     <input type="range" id="opp-demand" min="0" max="100" value="40">
@@ -643,7 +655,7 @@
                 </div>
                 <div class="hx-card">
                     <div class="hx-chart"><canvas id="opp-chart" aria-label="Bubble chart of example programs by local competition and job demand growth" role="img"></canvas></div>
-                    <p class="hx-note">Illustrative programs and scores. A real engagement uses BLS and state labor projections, IPEDS completions by nearby institution, search-trend data and your own enrollment history.</p>
+                    <p class="hx-note"><strong>Example data only:</strong> these programs and scores are illustrative, not research results. A real engagement uses BLS and state labor projections, IPEDS completions by nearby institution, search-trend data and your own enrollment history.</p>
                 </div>
             </div>
         </div>
@@ -694,7 +706,7 @@
                 <div class="hx-card hx-case">
                     <h3>Completion &amp; dropout prediction</h3>
                     <h4>Challenge</h4><p>Identify students at risk of leaving early enough to help.</p>
-                    <h4>Approach</h4><p>Machine-learning models on academic and engagement data.</p>
+                    <h4>Approach</h4><p>Machine-learning models that predict which students are at risk of not completing.</p>
                     <h4>Research</h4><p>Methods and results are in the paper. <a href="#research" onclick="scrollToSection('research', event)">See reference [1] →</a></p>
                 </div>
                 <div class="hx-card hx-case">
@@ -722,7 +734,7 @@
 
             <div class="hx-sub">
                 <h3>Published <span>· Conference proceedings</span></h3>
-                <p>Peer-reviewed and publicly available.</p>
+                <p>Published papers, available online.</p>
             </div>
             <div class="hx-pubs">
                 <div class="hx-pub">
@@ -739,7 +751,7 @@
 
             <div class="hx-sub hx-sub-review">
                 <h3>Under review</h3>
-                <p>Submitted manuscripts, not yet published. Results will be shared once accepted.</p>
+                <p>Submitted manuscripts, not yet published.</p>
             </div>
             <div class="hx-pubs">
                 <div class="hx-pub hx-pub-review">
@@ -759,12 +771,18 @@
     <section id="contact">
         <div class="contact">
             <h2 class="section-title" id="contact-title">Contact Us</h2>
-            <p class="section-subtitle" id="contact-subtitle">Let's discuss how we can help transform your data</p>
-            <div class="contact-grid contact-grid-single">
-                <div class="contact-item">
-                    <h4 id="contact-email-label">Email</h4>
-                    <a href="mailto:support@rds24.com">support@rds24.com</a>
-                </div>
+            <p class="section-subtitle" id="contact-subtitle">Let's talk about your enrollment, program and financial questions</p>
+            <div class="contact-inquiry">
+                <h3>Send an inquiry</h3>
+                <p>Tell us about the enrollment, program or financial question your institution is working on. The button opens a pre-filled email in your mail app.</p>
+                <ul class="contact-checklist">
+                    <li>Your name and role</li>
+                    <li>Your institution</li>
+                    <li>The service you are interested in</li>
+                    <li>A short description of your question or goal</li>
+                </ul>
+                <a class="contact-btn" href="mailto:support@rds24.com?subject=Inquiry%20from%20rds24.com&amp;body=Name%3A%0AInstitution%3A%0ARole%3A%0AService%20of%20interest%20%28program%20discovery%2C%20enrollment%20%26%20retention%2C%20marketing%2C%20financial%20analytics%2C%20other%29%3A%0A%0AMessage%3A%0A">Send an inquiry by email →</a>
+                <p class="contact-direct"><span id="contact-email-label">Email</span>: <a href="mailto:support@rds24.com">support@rds24.com</a></p>
             </div>
         </div>
     </section>
@@ -796,7 +814,7 @@
                 servicesTitle: "What we do for universities",
                 servicesSubtitle: "Four practices, each built around a decision your leadership team has to make.",
                 contactTitle: "Contact Us",
-                contactSubtitle: "Let's discuss how we can help transform your data",
+                contactSubtitle: "Let's talk about your enrollment, program and financial questions",
                 contactEmailLabel: "Email",
                 footerText: "© 2025 Riverside Data Solutions. All rights reserved."
             },
@@ -815,8 +833,7 @@
                 aboutDesc2: "Contamos con un equipo dedicado de ingenieros de datos, analistas de datos y científicos de datos para ofrecer soluciones completas.",
                 aboutDesc3: "Nuestra misión es empoderar a su empresa con conocimientos y estrategias basadas en datos.",
                 contactTitle: "Contáctenos",
-                contactSubtitle: "Hablemos sobre cómo podemos ayudar a transformar sus datos",
-                contactEmailLabel: "Correo electrónico",
+                                contactEmailLabel: "Correo electrónico",
                 footerText: "© 2025 Soluciones de Datos Riverside. Todos los derechos reservados."
             },
             zh: {
@@ -834,8 +851,7 @@
                 aboutDesc2: "我们拥有一支由数据工程师、数据分析师和数据科学家组成的专业团队，提供全面的解决方案。",
                 aboutDesc3: "我们的使命是通过数据驱动的洞察力和策略赋能您的业务。",
                 contactTitle: "联系我们",
-                contactSubtitle: "让我们讨论如何帮助转变您的数据",
-                contactEmailLabel: "电子邮件",
+                                contactEmailLabel: "电子邮件",
                 footerText: "© 2025 河滨数据解决方案。保留所有权利。"
             }
         };
