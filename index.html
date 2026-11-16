@@ -450,6 +450,72 @@
                 gap: 1.5rem;
             }
         }
+    
+        .contact-grid-single { grid-template-columns: minmax(0, 420px); justify-content: center; }
+
+        /* Higher-ed content sections */
+        section.hx-section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+        .hx { padding: 0; }
+        .hx-band .hx { background: var(--card); border-radius: var(--radius); padding: 4rem; }
+        .hx-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+        .hx-title { font-size: 2.25rem; color: var(--text); margin-bottom: 0.75rem; line-height: 1.2; }
+        .hx-subtitle { color: var(--text-light); font-size: 1.05rem; max-width: 760px; }
+        .hx-grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 2rem; }
+        .hx-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+        .hx-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative; }
+        .hx-card h3 { font-size: 1.08rem; color: var(--primary); margin-bottom: 0.4rem; }
+        .hx-card p { color: var(--text-light); font-size: 0.92rem; }
+        .hx-card ul { margin: 0.75rem 0 0 1.1rem; font-size: 0.88rem; }
+        .hx-icon { width: 40px; height: 40px; border-radius: 10px; background: #e8f1ec; color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Sora', sans-serif; margin-bottom: 0.8rem; }
+        .hx-quote { margin-top: 2rem; padding: 1.5rem 2rem; border-left: 4px solid var(--accent); background: #f3f8f5; border-radius: 0 var(--radius) var(--radius) 0; font-family: 'Sora', sans-serif; font-size: 1.15rem; color: var(--primary); }
+        .hx-lead { border: 2px solid var(--primary); }
+        .hx-lead-badge { position: absolute; top: -11px; left: 1.2rem; background: var(--primary); color: #fff; font-size: 0.7rem; padding: 0.1rem 0.6rem; border-radius: 20px; }
+        .hx-out { margin-top: 0.9rem; font-size: 0.82rem; border-top: 1px dashed var(--border); padding-top: 0.6rem; color: var(--primary-light); }
+        .hx-split { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; margin-top: 2rem; align-items: start; }
+        .hx-ctrl-title { font-family: 'Sora', sans-serif; color: var(--primary); }
+        .hx-ctrl label { display: block; font-size: 0.85rem; font-weight: 600; margin: 1rem 0 0.3rem; }
+        .hx-ctrl input[type="range"] { width: 100%; accent-color: var(--primary); }
+        .hx-val { float: right; color: var(--primary); font-weight: 700; }
+        .hx-rank { list-style: none; margin-top: 1rem; padding: 0; counter-reset: rank; }
+        .hx-rank li { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); counter-increment: rank; }
+        .hx-rank li span::before { content: counter(rank) ". "; }
+        .hx-rank b { color: var(--primary); }
+        .hx-chart { position: relative; width: 100%; aspect-ratio: 4 / 3; }
+        .hx-note { font-size: 0.75rem; color: var(--text-light); margin-top: 0.6rem; font-style: italic; }
+        .hx-case h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-top: 0.8rem; }
+        .hx-case p { font-size: 0.9rem; }
+        .hx-case a { color: var(--accent); font-weight: 600; text-decoration: none; }
+        .hx-case a:hover { text-decoration: underline; }
+        .hx-sub { margin-top: 2.5rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--primary); }
+        .hx-sub h3 { font-size: 1.25rem; color: var(--primary); }
+        .hx-sub h3 span { font-weight: 400; color: var(--text-light); font-size: 1rem; }
+        .hx-sub p { font-size: 0.88rem; color: var(--text-light); }
+        .hx-sub-review { border-bottom-color: #d4a72c; }
+        .hx-sub-review h3 { color: #7a5a00; }
+        .hx-pubs { margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem; }
+        .hx-pub { display: grid; grid-template-columns: 48px 1fr auto; gap: 1rem; align-items: start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+        .hx-pub-review { background: #fffdf6; border-style: dashed; }
+        .hx-pub-n { font-family: 'Sora', sans-serif; font-weight: 700; color: var(--accent); font-size: 1.1rem; }
+        .hx-pub-t { font-weight: 600; color: var(--text); }
+        .hx-pub-m { font-size: 0.88rem; color: var(--text-light); margin-top: 0.2rem; }
+        .hx-pub-k { font-size: 0.75rem; color: var(--primary-light); margin-top: 0.4rem; }
+        .hx-pub-link { display: inline-block; margin-top: 0.6rem; font-size: 0.85rem; color: var(--accent); font-weight: 600; text-decoration: none; }
+        .hx-pub-link:hover { text-decoration: underline; }
+        .hx-status { font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 20px; white-space: nowrap; }
+        .hx-status-pub { background: #e8f1ec; color: var(--primary); }
+        .hx-status-review { background: #fff4d6; color: #7a5a00; }
+        @media (max-width: 1000px) {
+            .hx-grid4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .hx-band .hx { padding: 2rem 1.25rem; }
+            .hx-title { font-size: 1.75rem; }
+            .hx-grid4, .hx-grid3, .hx-split { grid-template-columns: 1fr; }
+            .hx-chart { aspect-ratio: 1 / 1; }
+            .hx-pub { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.1rem; }
+            .hx-pub .hx-status { justify-self: start; }
+            .hx-quote { padding: 1.1rem 1.25rem; font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -499,8 +565,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 id="hero-title">Data-Driven Insights for Your Business</h1>
-            <p id="hero-subtitle">Empowering organizations with comprehensive data engineering, analytics, and science solutions since 2025.</p>
+            <h1 id="hero-title">Find the programs only you can offer</h1>
+            <p id="hero-subtitle">We help universities discover niche and sunrise programs, predict enrollment and retention, and stay affordable, instead of competing on price with community colleges and state schools.</p>
             <button class="cta-btn" onclick="scrollToSection('contact')">
                 <span id="hero-cta">Get Started</span>
             </button>
@@ -510,7 +576,7 @@
                     <div class="stat-label" id="stat-founded">Founded</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">3</div>
+                    <div class="stat-number">4</div>
                     <div class="stat-label" id="stat-services">Core Services</div>
                 </div>
                 <div class="stat">
@@ -540,49 +606,151 @@
         </div>
     </section>
 
+    <!-- The Challenge Section -->
+    <section id="challenge" class="hx-section hx-band">
+        <div class="hx">
+            <span class="hx-tag">The challenge</span>
+            <h2 class="hx-title">Undergraduate enrollment is under pressure</h2>
+            <p class="hx-subtitle">Four forces are shrinking the traditional student pool, and all of them come back to the first question students and families ask: is it affordable, and is it worth it?</p>
+            <div class="hx-grid4">
+                <div class="hx-card"><div class="hx-icon" aria-hidden="true">$</div><h3>Affordability</h3><p>Rising costs and economic uncertainty make families weigh every tuition dollar against the outcome.</p></div>
+                <div class="hx-card"><div class="hx-icon" aria-hidden="true">↓</div><h3>Population decline</h3><p>Fewer high-school graduates each year means a smaller pool of traditional first-year students.</p></div>
+                <div class="hx-card"><div class="hx-icon" aria-hidden="true">?</div><h3>Unclear career pathways</h3><p>Students hesitate when they cannot see the job a program leads to.</p></div>
+                <div class="hx-card"><div class="hx-icon" aria-hidden="true">⇄</div><h3>Local competition</h3><p>Community colleges and state universities win on price in the same broad programs.</p></div>
+            </div>
+            <div class="hx-quote">Don't compete on price in crowded programs. Find the niche and sunrise programs where your institution can lead.</div>
+        </div>
+    </section>
+
+    <!-- Program Opportunity Finder Section -->
+    <section id="opportunity-finder" class="hx-section">
+        <div class="hx">
+            <span class="hx-tag">Our approach · try it</span>
+            <h2 class="hx-title">Program Opportunity Finder</h2>
+            <p class="hx-subtitle">We score candidate programs on labor-market demand, local competition, student interest and fit with your strengths. Programs in the top-left are sunrise opportunities: growing demand, few local providers.</p>
+            <div class="hx-split">
+                <div class="hx-card hx-ctrl">
+                    <strong class="hx-ctrl-title">What matters most to you?</strong>
+                    <label for="opp-demand">Job demand growth <span class="hx-val" id="opp-demand-val">40%</span></label>
+                    <input type="range" id="opp-demand" min="0" max="100" value="40">
+                    <label for="opp-competition">Low local competition <span class="hx-val" id="opp-competition-val">30%</span></label>
+                    <input type="range" id="opp-competition" min="0" max="100" value="30">
+                    <label for="opp-interest">Student search interest <span class="hx-val" id="opp-interest-val">20%</span></label>
+                    <input type="range" id="opp-interest" min="0" max="100" value="20">
+                    <label for="opp-fit">Fit with existing faculty <span class="hx-val" id="opp-fit-val">10%</span></label>
+                    <input type="range" id="opp-fit" min="0" max="100" value="10">
+                    <ol class="hx-rank" id="opp-rank" aria-live="polite"></ol>
+                </div>
+                <div class="hx-card">
+                    <div class="hx-chart"><canvas id="opp-chart" aria-label="Bubble chart of example programs by local competition and job demand growth" role="img"></canvas></div>
+                    <p class="hx-note">Illustrative programs and scores. A real engagement uses BLS and state labor projections, IPEDS completions by nearby institution, search-trend data and your own enrollment history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services">
-        <h2 class="section-title" id="services-title">Our Services</h2>
-        <p class="section-subtitle" id="services-subtitle">Comprehensive data solutions tailored to your needs</p>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="3"></circle>
-                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                    </svg>
+    <section id="services" class="hx-section hx-band">
+        <div class="hx">
+            <span class="hx-tag">Services</span>
+            <h2 class="hx-title" id="services-title">What we do for universities</h2>
+            <p class="hx-subtitle" id="services-subtitle">Four practices, each built around a decision your leadership team has to make.</p>
+            <div class="hx-grid4">
+                <div class="hx-card hx-lead">
+                    <span class="hx-lead-badge">Core focus</span>
+                    <h3>Program Discovery &amp; Evaluation</h3>
+                    <p>Find, test and launch niche and sunrise programs, and review the health of existing ones.</p>
+                    <ul><li>Market demand and competition scan</li><li>Program portfolio evaluation</li><li>New-program business case</li></ul>
+                    <div class="hx-out">For: Provost, Deans, Board</div>
                 </div>
-                <h3 id="service-1-title">Data Engineering</h3>
-                <p id="service-1-desc">Building robust data pipelines and infrastructure to handle your data at scale.</p>
+                <div class="hx-card">
+                    <h3>Enrollment &amp; Retention Prediction</h3>
+                    <p>Machine-learning forecasts of who enrolls and who is at risk of dropping out.</p>
+                    <ul><li>Enrollment forecasts by program</li><li>Dropout early-warning scores</li><li>Intervention targeting</li></ul>
+                    <div class="hx-out">For: Enrollment, Student Success</div>
+                </div>
+                <div class="hx-card">
+                    <h3>Marketing Strategy</h3>
+                    <p>Reach the right students for each program and show a clear career pathway.</p>
+                    <ul><li>Audience and territory targeting</li><li>Channel mix analysis</li><li>Program-to-career messaging</li></ul>
+                    <div class="hx-out">For: Marketing, Admissions</div>
+                </div>
+                <div class="hx-card">
+                    <h3>Financial Analytics</h3>
+                    <p>Affordability and financial health for the institution and its people.</p>
+                    <ul><li>Endowment and investment risk</li><li>Student investment and loan plans</li><li>Employee 403(b) planning</li></ul>
+                    <div class="hx-out">For: CFO, HR, Financial Aid</div>
+                </div>
             </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 3v18h18"></path>
-                        <rect x="7" y="13" width="3" height="5"></rect>
-                        <rect x="12.5" y="9" width="3" height="9"></rect>
-                        <rect x="18" y="6" width="3" height="12"></rect>
-                    </svg>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="hx-section">
+        <div class="hx">
+            <span class="hx-tag">Case studies</span>
+            <h2 class="hx-title">Real work, real institutions</h2>
+            <div class="hx-grid3">
+                <div class="hx-card hx-case">
+                    <h3>Completion &amp; dropout prediction</h3>
+                    <h4>Challenge</h4><p>Identify students at risk of leaving early enough to help.</p>
+                    <h4>Approach</h4><p>Machine-learning models on academic and engagement data.</p>
+                    <h4>Research</h4><p>Methods and results are in the paper. <a href="#research" onclick="scrollToSection('research', event)">See reference [1] →</a></p>
                 </div>
-                <h3 id="service-2-title">Data Analytics</h3>
-                <p id="service-2-desc">Insightful dashboards and reports that transform raw data into actionable intelligence.</p>
+                <div class="hx-card hx-case">
+                    <h3>Enrollment prediction</h3>
+                    <h4>Challenge</h4><p>Plan budgets and sections without reliable headcount forecasts.</p>
+                    <h4>Approach</h4><p>Machine-learning forecasts of enrollment and completion.</p>
+                    <h4>Research</h4><p>Methods and results are in the paper. <a href="#research" onclick="scrollToSection('research', event)">See reference [1] →</a></p>
+                </div>
+                <div class="hx-card hx-case">
+                    <h3>Academic team &amp; leadership evaluation</h3>
+                    <h4>Challenge</h4><p>Improve how academic teams are led and coordinated.</p>
+                    <h4>Approach</h4><p>Advanced modeling of employee and management roles to find efficiency gains.</p>
+                    <h4>Research</h4><p>Methods are described in the manuscript. <a href="#research" onclick="scrollToSection('research', event)">See reference [2] →</a></p>
+                </div>
             </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="5" cy="6" r="2"></circle>
-                        <circle cx="5" cy="18" r="2"></circle>
-                        <circle cx="12" cy="12" r="2.4"></circle>
-                        <circle cx="19" cy="7" r="2"></circle>
-                        <circle cx="19" cy="17" r="2"></circle>
-                        <path d="M6.7 7.2 10 10.7"></path>
-                        <path d="M6.7 16.8 10 13.3"></path>
-                        <path d="M14.1 10.6 17.2 8.4"></path>
-                        <path d="M14.1 13.4 17.2 15.6"></path>
-                    </svg>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="hx-section hx-band">
+        <div class="hx">
+            <span class="hx-tag">Research &amp; publications</span>
+            <h2 class="hx-title">Research behind our methods</h2>
+            <p class="hx-subtitle">The methods we apply are grounded in the following conference research.</p>
+
+            <div class="hx-sub">
+                <h3>Published <span>· Conference proceedings</span></h3>
+                <p>Peer-reviewed and publicly available.</p>
+            </div>
+            <div class="hx-pubs">
+                <div class="hx-pub">
+                    <div class="hx-pub-n">[1]</div>
+                    <div>
+                        <div class="hx-pub-t">Elevating Student Success: Harnessing Machine Learning to Enhance University Completion Rates</div>
+                        <div class="hx-pub-m">Kowarsch, D. (2025) · Proceedings of Intelligent Human Systems Integration (IHSI 2025), AHFE Open Access</div>
+                        <div class="hx-pub-k">Student retention · Machine learning · Completion rates</div>
+                        <a class="hx-pub-link" href="https://www.researchgate.net/publication/388392127_Elevating_Student_Success_Harnessing_Machine_Learning_to_Enhance_University_Completion_Rates" target="_blank" rel="noopener noreferrer">View on ResearchGate →</a>
+                    </div>
+                    <span class="hx-status hx-status-pub">Conference paper</span>
                 </div>
-                <h3 id="service-3-title">Data Science</h3>
-                <p id="service-3-desc">Predictive modeling and machine learning solutions to unlock future opportunities.</p>
+            </div>
+
+            <div class="hx-sub hx-sub-review">
+                <h3>Under review</h3>
+                <p>Submitted manuscripts, not yet published. Results will be shared once accepted.</p>
+            </div>
+            <div class="hx-pubs">
+                <div class="hx-pub hx-pub-review">
+                    <div class="hx-pub-n">[2]</div>
+                    <div>
+                        <div class="hx-pub-t">Structuring Success: The Role of Supervisory Staff in Coordinating Educational Teams' Leadership</div>
+                        <div class="hx-pub-m">Kowarsch, D. · Presented at IRECONF 2025, Netherlands</div>
+                        <div class="hx-pub-k">Organizational evaluation · Leadership · Efficiency</div>
+                    </div>
+                    <span class="hx-status hx-status-review">Under review</span>
+                </div>
             </div>
         </div>
     </section>
@@ -592,18 +760,10 @@
         <div class="contact">
             <h2 class="section-title" id="contact-title">Contact Us</h2>
             <p class="section-subtitle" id="contact-subtitle">Let's discuss how we can help transform your data</p>
-            <div class="contact-grid">
+            <div class="contact-grid contact-grid-single">
                 <div class="contact-item">
                     <h4 id="contact-email-label">Email</h4>
                     <a href="mailto:support@rds24.com">support@rds24.com</a>
-                </div>
-                <div class="contact-item">
-                    <h4 id="contact-phone-label">Phone</h4>
-                    <a href="tel:+19517852481">+1 (951) 785-2481</a>
-                </div>
-                <div class="contact-item">
-                    <h4 id="contact-location-label">Location</h4>
-                    <p>Riverside, California, USA</p>
                 </div>
             </div>
         </div>
@@ -623,8 +783,8 @@
                 navServices: "Services",
                 navContact: "Contact",
                 navDashboard: "Trading Dashboard",
-                heroTitle: "Data-Driven Insights for Your Business",
-                heroSubtitle: "Empowering organizations with comprehensive data engineering, analytics, and science solutions since 2025.",
+                heroTitle: "Find the programs only you can offer",
+                heroSubtitle: "We help universities discover niche and sunrise programs, predict enrollment and retention, and stay affordable, instead of competing on price with community colleges and state schools.",
                 heroCta: "Get Started",
                 statFounded: "Founded",
                 statServices: "Core Services",
@@ -633,19 +793,11 @@
                 aboutDesc1: "Founded in early 2025, Riverside Data Solutions was established to help organizations turn raw data into a lasting competitive advantage.",
                 aboutDesc2: "We have a dedicated team of data engineers, data analysts, and data scientists to deliver comprehensive solutions.",
                 aboutDesc3: "Our mission is to empower your business with data-driven insights and strategies.",
-                servicesTitle: "Our Services",
-                servicesSubtitle: "Comprehensive data solutions tailored to your needs",
-                service1Title: "Data Engineering",
-                service1Desc: "Building robust data pipelines and infrastructure to handle your data at scale.",
-                service2Title: "Data Analytics",
-                service2Desc: "Insightful dashboards and reports that transform raw data into actionable intelligence.",
-                service3Title: "Data Science",
-                service3Desc: "Predictive modeling and machine learning solutions to unlock future opportunities.",
+                servicesTitle: "What we do for universities",
+                servicesSubtitle: "Four practices, each built around a decision your leadership team has to make.",
                 contactTitle: "Contact Us",
                 contactSubtitle: "Let's discuss how we can help transform your data",
                 contactEmailLabel: "Email",
-                contactPhoneLabel: "Phone",
-                contactLocationLabel: "Location",
                 footerText: "© 2025 Riverside Data Solutions. All rights reserved."
             },
             es: {
@@ -654,8 +806,6 @@
                 navServices: "Servicios",
                 navContact: "Contacto",
                 navDashboard: "Panel de Trading",
-                heroTitle: "Conocimientos Basados en Datos para Su Negocio",
-                heroSubtitle: "Empoderando organizaciones con soluciones integrales de ingeniería, análisis y ciencia de datos desde 2025.",
                 heroCta: "Comenzar",
                 statFounded: "Fundada",
                 statServices: "Servicios Principales",
@@ -664,19 +814,9 @@
                 aboutDesc1: "Fundada a principios de 2025, Riverside Data Solutions se creó para ayudar a las organizaciones a convertir sus datos en una ventaja competitiva duradera.",
                 aboutDesc2: "Contamos con un equipo dedicado de ingenieros de datos, analistas de datos y científicos de datos para ofrecer soluciones completas.",
                 aboutDesc3: "Nuestra misión es empoderar a su empresa con conocimientos y estrategias basadas en datos.",
-                servicesTitle: "Nuestros Servicios",
-                servicesSubtitle: "Soluciones de datos integrales adaptadas a sus necesidades",
-                service1Title: "Ingeniería de Datos",
-                service1Desc: "Construcción de canalizaciones de datos robustas e infraestructura para manejar sus datos a escala.",
-                service2Title: "Análisis de Datos",
-                service2Desc: "Tableros e informes perspicaces que transforman datos sin procesar en inteligencia procesable.",
-                service3Title: "Ciencia de Datos",
-                service3Desc: "Modelado predictivo y soluciones de aprendizaje automático para desbloquear oportunidades futuras.",
                 contactTitle: "Contáctenos",
                 contactSubtitle: "Hablemos sobre cómo podemos ayudar a transformar sus datos",
                 contactEmailLabel: "Correo electrónico",
-                contactPhoneLabel: "Teléfono",
-                contactLocationLabel: "Dirección",
                 footerText: "© 2025 Soluciones de Datos Riverside. Todos los derechos reservados."
             },
             zh: {
@@ -685,8 +825,6 @@
                 navServices: "服务",
                 navContact: "联系",
                 navDashboard: "交易仪表板",
-                heroTitle: "为您的业务提供数据驱动的洞察",
-                heroSubtitle: "自2025年以来，通过全面的数据工程、分析和科学解决方案赋能组织。",
                 heroCta: "开始使用",
                 statFounded: "成立于",
                 statServices: "核心服务",
@@ -695,19 +833,9 @@
                 aboutDesc1: "河滨数据解决方案成立于2025年初，致力于帮助企业将数据转化为持久的竞争优势。",
                 aboutDesc2: "我们拥有一支由数据工程师、数据分析师和数据科学家组成的专业团队，提供全面的解决方案。",
                 aboutDesc3: "我们的使命是通过数据驱动的洞察力和策略赋能您的业务。",
-                servicesTitle: "我们的服务",
-                servicesSubtitle: "根据您的需求量身定制的全面数据解决方案",
-                service1Title: "数据工程",
-                service1Desc: "构建强大的数据管道和基础设施，以大规模处理您的数据。",
-                service2Title: "数据分析",
-                service2Desc: "有洞察力的仪表板和报告，将原始数据转化为可操作的智能。",
-                service3Title: "数据科学",
-                service3Desc: "预测建模和机器学习解决方案，释放未来机会。",
                 contactTitle: "联系我们",
                 contactSubtitle: "让我们讨论如何帮助转变您的数据",
                 contactEmailLabel: "电子邮件",
-                contactPhoneLabel: "电话",
-                contactLocationLabel: "地址",
                 footerText: "© 2025 河滨数据解决方案。保留所有权利。"
             }
         };
@@ -723,37 +851,34 @@
         }
 
         function updateContent() {
-            const t = translations[currentLanguage];
+            const t = translations[currentLanguage] || translations.en;
+            // New sections are English only; missing keys fall back to English
+            const setText = (id, key) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = t[key] || translations.en[key];
+            };
             
-            document.getElementById('site-title').textContent = t.siteTitle;
-            document.getElementById('nav-about').textContent = t.navAbout;
-            document.getElementById('nav-services').textContent = t.navServices;
-            document.getElementById('nav-contact').textContent = t.navContact;
-            document.getElementById('nav-dashboard').textContent = t.navDashboard;
-            document.getElementById('hero-title').textContent = t.heroTitle;
-            document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
-            document.getElementById('hero-cta').textContent = t.heroCta;
-            document.getElementById('stat-founded').textContent = t.statFounded;
-            document.getElementById('stat-services').textContent = t.statServices;
-            document.getElementById('stat-possibilities').textContent = t.statPossibilities;
-            document.getElementById('about-title').textContent = t.aboutTitle;
-            document.getElementById('about-desc-1').textContent = t.aboutDesc1;
-            document.getElementById('about-desc-2').textContent = t.aboutDesc2;
-            document.getElementById('about-desc-3').textContent = t.aboutDesc3;
-            document.getElementById('services-title').textContent = t.servicesTitle;
-            document.getElementById('services-subtitle').textContent = t.servicesSubtitle;
-            document.getElementById('service-1-title').textContent = t.service1Title;
-            document.getElementById('service-1-desc').textContent = t.service1Desc;
-            document.getElementById('service-2-title').textContent = t.service2Title;
-            document.getElementById('service-2-desc').textContent = t.service2Desc;
-            document.getElementById('service-3-title').textContent = t.service3Title;
-            document.getElementById('service-3-desc').textContent = t.service3Desc;
-            document.getElementById('contact-title').textContent = t.contactTitle;
-            document.getElementById('contact-subtitle').textContent = t.contactSubtitle;
-            document.getElementById('contact-email-label').textContent = t.contactEmailLabel;
-            document.getElementById('contact-phone-label').textContent = t.contactPhoneLabel;
-            document.getElementById('contact-location-label').textContent = t.contactLocationLabel;
-            document.getElementById('footer-text').textContent = t.footerText;
+            setText('site-title', 'siteTitle');
+            setText('nav-about', 'navAbout');
+            setText('nav-services', 'navServices');
+            setText('nav-contact', 'navContact');
+            setText('nav-dashboard', 'navDashboard');
+            setText('hero-title', 'heroTitle');
+            setText('hero-subtitle', 'heroSubtitle');
+            setText('hero-cta', 'heroCta');
+            setText('stat-founded', 'statFounded');
+            setText('stat-services', 'statServices');
+            setText('stat-possibilities', 'statPossibilities');
+            setText('about-title', 'aboutTitle');
+            setText('about-desc-1', 'aboutDesc1');
+            setText('about-desc-2', 'aboutDesc2');
+            setText('about-desc-3', 'aboutDesc3');
+            setText('services-title', 'servicesTitle');
+            setText('services-subtitle', 'servicesSubtitle');
+            setText('contact-title', 'contactTitle');
+            setText('contact-subtitle', 'contactSubtitle');
+            setText('contact-email-label', 'contactEmailLabel');
+            setText('footer-text', 'footerText');
         }
 
         function toggleLangDropdown() {
@@ -782,6 +907,107 @@
         // Initialize with saved language or default
         const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
         setLanguage(savedLanguage);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        // Program Opportunity Finder (illustrative data)
+        (function () {
+            // [name, job demand growth, local competition, student interest, faculty fit] on a 0-100 scale
+            const programs = [
+                ['Health informatics', 88, 25, 70, 60],
+                ['Cybersecurity', 85, 55, 80, 50],
+                ['Data analytics', 80, 60, 85, 80],
+                ['Supply chain analytics', 72, 30, 50, 55],
+                ['Gerontology & aging services', 75, 20, 40, 45],
+                ['Renewable energy mgmt', 66, 32, 55, 30],
+                ['General business', 35, 90, 70, 90],
+                ['Psychology', 40, 85, 75, 70],
+                ['Agri-tech', 60, 15, 30, 25]
+            ];
+            const sliders = ['opp-demand', 'opp-competition', 'opp-interest', 'opp-fit'];
+            const canvas = document.getElementById('opp-chart');
+            if (!canvas) return;
+            let chart = null;
+
+            function scores() {
+                const w = sliders.map(id => +document.getElementById(id).value);
+                const total = w.reduce((a, b) => a + b, 0) || 1;
+                sliders.forEach((id, i) => {
+                    document.getElementById(id + '-val').textContent = Math.round(w[i] / total * 100) + '%';
+                });
+                return programs.map(p => ({
+                    name: p[0],
+                    score: (w[0] * p[1] + w[1] * (100 - p[2]) + w[2] * p[3] + w[3] * p[4]) / total
+                })).sort((a, b) => b.score - a.score);
+            }
+
+            function render() {
+                const ranked = scores();
+                const rank = document.getElementById('opp-rank');
+                rank.innerHTML = '';
+                ranked.slice(0, 4).forEach(r => {
+                    const li = document.createElement('li');
+                    const name = document.createElement('span');
+                    name.textContent = r.name;
+                    const val = document.createElement('b');
+                    val.textContent = Math.round(r.score);
+                    li.append(name, val);
+                    rank.appendChild(li);
+                });
+                if (!window.Chart) return;
+                const top = new Set(ranked.slice(0, 3).map(r => r.name));
+                const colors = programs.map(p => top.has(p[0]) ? '#0ea5a5' : 'rgba(74, 124, 94, 0.45)');
+                if (chart) {
+                    chart.data.datasets[0].backgroundColor = colors;
+                    chart.update();
+                    return;
+                }
+                const points = programs.map(p => ({ x: p[2], y: p[1], r: 6 + p[3] / 8, name: p[0] }));
+                const narrow = () => canvas.parentElement.clientWidth < 560;
+                chart = new Chart(canvas, {
+                    type: 'bubble',
+                    data: { datasets: [{ data: points, backgroundColor: colors, borderColor: '#2d5a3d', borderWidth: 1 }] },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: false,
+                        layout: { padding: { right: narrow() ? 10 : 110 } },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { callbacks: { label: c => c.raw.name } }
+                        },
+                        scales: {
+                            x: { min: 0, max: 100, title: { display: true, text: 'Local competition →' } },
+                            y: { min: 20, max: 100, title: { display: true, text: 'Job demand growth →' } }
+                        }
+                    },
+                    plugins: [{
+                        id: 'labels',
+                        afterDatasetsDraw(c) {
+                            const ctx = c.ctx;
+                            const a = c.chartArea;
+                            ctx.save();
+                            ctx.fillStyle = 'rgba(14, 165, 165, 0.08)';
+                            ctx.fillRect(a.left, a.top, (a.right - a.left) / 2, (a.bottom - a.top) / 2);
+                            ctx.fillStyle = '#0b7f7f';
+                            ctx.font = '600 12px Inter, sans-serif';
+                            ctx.fillText('SUNRISE OPPORTUNITIES', a.left + 8, a.top + 16);
+                            if (!narrow()) {
+                                ctx.fillStyle = '#1a1a1a';
+                                ctx.font = '12px Inter, sans-serif';
+                                c.getDatasetMeta(0).data.forEach((el, i) => {
+                                    ctx.fillText(points[i].name, el.x + el.options.radius + 4, el.y + 4);
+                                });
+                            }
+                            ctx.restore();
+                        }
+                    }]
+                });
+            }
+
+            sliders.forEach(id => document.getElementById(id).addEventListener('input', render));
+            render();
+        })();
     </script>
 </body>
 </html>
